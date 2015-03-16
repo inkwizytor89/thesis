@@ -1,0 +1,15 @@
+\begin{algorithm}
+\caption{VERTEX-COVER-EDGES-APPROX}\label{euclid}
+\begin{algorithmic}[1]
+\Function{MyProcedure}{}
+\State $C \gets \emptyset$
+\State $E' \gets G.E$
+\While{$E' \neq \emptyset$} 
+\State $\text{weź dowolna krawędź}(u,v) \in E'$
+\State $C \gets C \cup \{u,v\}$
+\State $\text{usuń z } E' \text{ incydentne krawędzie z } u \text{ lub } v $
+\EndWhile
+\State \Return C
+\EndFunction
+\end{algorithmic}
+\end{algorithm}

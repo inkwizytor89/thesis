@@ -1,0 +1,52 @@
+% ------------------------------------------------------------------------
+%   Kropki po numerach sekcji, podsekcji, itd.
+%   Np. 1.2. Tytul podrozdzialu
+% ------------------------------------------------------------------------
+\makeatletter
+    \def\numberline#1{\hb@xt@\@tempdima{#1.\hfil}}                      %kropki w spisie tresci
+    \renewcommand*\@seccntformat[1]{\csname the#1\endcsname.\enspace}   %kropki w tresci dokumentu
+\makeatother
+
+%numerowanie tabel:
+%\renewcommand{\thetable}{\thechapter.\arabic{figure}}
+
+
+%
+%twierdzenia, definicje i lematy
+%
+\newtheorem{defin}{Definicja}
+\newtheorem{twr}{Twierdzenie}
+\newtheorem{lem}[twr]{Lemat}
+\renewenvironment{proof}{Dowód:}
+% ------------------------------------------------------------------------
+% Inne
+% ------------------------------------------------------------------------
+\frenchspacing
+\setlength{\parskip}{3pt}           	% odstep pom. akapitamia
+\linespread{1.49}                    	% odstep pomiedzy liniami (interlinia)
+%\onehalfspacing
+
+\setcounter{tocdepth}{2}            	% stopien zaglebienia w spisie tresci
+\setcounter{secnumdepth}{2}         	% do jakiego stopnia zaglebienia numeracja
+
+% polskie podpisy
+\renewcommand{\figurename}{Rys.}
+\renewcommand{\tablename}{Tab.}
+
+%paginy zywe smierci
+\pagestyle{fancy}
+% zmiana liter w~zywej paginie na małe
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{} % usun biezace ustawienia pagin
+\fancyhead[LE,RO]{\small\bfseries\thepage}
+\fancyhead[LO]{\small\bfseries\rightmark}
+\fancyhead[RE]{\small\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\headheight}{0.5pt} % pionowy odstep na kreske
+\fancypagestyle{plain}{%
+\fancyhead{} % usun p. górne na stronach pozbawionych
+% numeracji (plain)
+\renewcommand{\headrulewidth}{0pt} % pozioma kreska
+} 

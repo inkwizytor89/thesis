@@ -1,0 +1,52 @@
+\documentclass[a4paper,12pt]{report}
+
+\input{pakiety.tex}
+\input{ustawienia.tex}
+
+\begin{document}
+
+\pagenumbering{roman}
+
+% strona tytulowa
+\input{strona_tytulowa.tex}
+
+% oswiadczenie
+\input{oswiadczenie.tex}
+
+% wstawienie spisu tresci:
+\newpage
+\tableofcontents
+
+% tresc pracy - numeracja stron liczbami arabskimi
+\newcounter{licznikStron}
+\setcounter{licznikStron}{\value{page}}
+\pagenumbering{arabic}
+\setcounter{page}{\value{licznikStron}}
+
+\input{introduction/wstep.tex}
+\input{definitions/definitions.tex}
+\input{first_problem/first_problem.tex}
+\input{vertex_cover/vertex_cover.tex}
+\input{clique/clique.tex}
+\input{tsp/tsp.tex}
+\input{subset_sum/subset_sum.tex}
+%\input{rozdzial_4.tex}
+
+% spis ilustracji:
+\newpage
+\listoffigures
+\addcontentsline{toc}{chapter}{Spis ilustracji}
+
+% spis tabel:
+\newpage
+\listoftables
+\addcontentsline{toc}{chapter}{Spis tabel}
+
+
+%bibliografia
+%\nocite{*}
+\bibliographystyle{acm}
+\bibliography{bibliografia.bib}
+\addcontentsline{toc}{chapter}{Bibliografia}
+
+\end{document} 

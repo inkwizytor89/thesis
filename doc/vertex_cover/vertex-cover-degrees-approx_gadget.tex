@@ -1,0 +1,73 @@
+\begin{figure}[tbh]
+\centering
+
+\begin{tikzpicture}
+  \tikzstyle{clique}=[circle,draw=black!75,fill=white!100,minimum size=8mm]
+\tikzstyle{covered_node}=[circle,thick,draw=black!75, fill=black!100,minimum size=4mm]
+\tikzstyle{uncovered_node}=[circle,thick,draw=black!75, fill=white!20,minimum size=4mm]
+
+  \node [clique,tokens=3] (heart) [label=above left:$K_{4}$] {};
+  
+  \node [covered_node] (1v1) [above of=heart,xshift=-12mm,yshift=1cm] {}
+  	edge node [xshift=5] {4} (heart);
+  \node [covered_node] (1v2) [above of=heart,xshift=-4mm,yshift=1cm] {}
+  	edge node [xshift=5] {4} (heart);
+  \node [covered_node] (1v3) [above of=heart,xshift=4mm,yshift=1cm] {}
+  	edge node [xshift=5] {4} (heart);
+  \node [covered_node] (1v4) [above of=heart,xshift=12mm,yshift=1cm] {}
+  	edge node [xshift=5] {4} (heart);
+  \node [uncovered_node] (1v5) [above of=heart,yshift=2cm] {}
+  	edge (1v1)
+  	edge (1v2)
+  	edge (1v3)
+  	edge (1v4);
+  	
+  \node [covered_node] (2v1) [below of=heart,xshift=-12mm,yshift=-1cm] {}
+  	edge node [xshift=-5] {4} (heart);
+  \node [covered_node] (2v2) [below of=heart,xshift=-4mm,yshift=-1cm] {}
+  	edge node [xshift=-5] {4} (heart);
+  \node [covered_node] (2v3) [below of=heart,xshift=4mm,yshift=-1cm] {}
+  	edge node [xshift=-5] {4} (heart);
+  \node [covered_node] (2v4) [below of=heart,xshift=12mm,yshift=-1cm] {}
+  	edge node [xshift=-5] {4} (heart);
+  \node [uncovered_node] (2v5) [below of=heart,yshift=-2cm] {}
+  	edge (2v1)
+  	edge (2v2)
+  	edge (2v3)
+  	edge (2v4);
+  	
+  \node [covered_node] (3v1) [left of=heart,yshift=-12mm,xshift=-1cm] {}
+  	edge node [yshift=-5] {4} (heart);
+  \node [covered_node] (3v2) [left of=heart,yshift=-4mm,xshift=-1cm] {}
+  	edge node [yshift=-5] {4} (heart);
+  \node [covered_node] (3v3) [left of=heart,yshift=4mm,xshift=-1cm] {}
+  	edge node [yshift=-5] {4} (heart);
+  \node [covered_node] (3v4) [left of=heart,yshift=12mm,xshift=-1cm] {}
+  	edge node [yshift=-5] {4} (heart);
+  \node [uncovered_node] (3v5) [left of=heart,xshift=-2cm] {}
+  	edge (3v1)
+  	edge (3v2)
+  	edge (3v3)
+  	edge (3v4);
+  	
+  \node [covered_node] (4v1) [right of=heart,yshift=-12mm,xshift=1cm] {}
+  	edge node [yshift=5] {4} (heart);
+  \node [covered_node] (4v2) [right of=heart,yshift=-4mm,xshift=1cm] {}
+  	edge node [yshift=5] {4} (heart);
+  \node [covered_node] (4v3) [right of=heart,yshift=4mm,xshift=1cm] {}
+  	edge node [yshift=5] {4} (heart);
+  \node [covered_node] (4v4) [right of=heart,yshift=12mm,xshift=1cm] {}
+  	edge node [yshift=5] {4} (heart);
+  \node [uncovered_node] (4v5) [right of=heart,xshift=2cm] {}
+  	edge (4v1)
+  	edge (4v2)
+  	edge (4v3)
+  	edge (4v4);
+
+\end{tikzpicture}
+
+\caption{Graf snowflake(4,4)}
+\label{vertex-cover-edges-approx_gadget}
+%\small
+%zakomentarzowany tekst
+\end{figure}
