@@ -28,29 +28,8 @@ Przyjrzyjmy się teraz związkowi jaki tworzą między sobą te dwa zadania. Nie
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ------------------------------------------
+
 Świadectwem dla problemu CLIQUE jest podzbiór wierzchołków $V'$ zawierających klikę. Aby sprawdzić autentyczność tego świadectwa wystarczy jedynie sprawdzić, czy dla każdej pary wierzchołków z tego podzbioru istnieje krawędź. To sprawdzenie ma złożoność kwadratową, czyli wielomianową.
 
 Aby pokazać, że CLIQUE jest NP-trudny podeprzemy się faktem że problem 3-CNF jest NP-trudny i przedstawię redukcje 3-CNF [$<=$] p CLIQUE. [kolki = C1 i C2 i ... Ck] oznaczmy jak formułę problemu 3-CNF składającą się z $r = 1,2,...k$ klauzul. Na każdą klauzulę składają się dokładnie 3 literały $l^r,1, l^r,2, l^r,3$. Skonstruujemy graf $G$ z formuły [kolko] w ten sposób że formuła jest spełniana wtedy i tylko wtedy, gdy G zawiera klikę o rozmiarze k.
