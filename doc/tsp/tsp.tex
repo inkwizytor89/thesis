@@ -4,8 +4,24 @@
 
 \section{Przedstawienie problemu}
 
-Problem komiwojażera (TSP) polega na wyznaczeniu cyklu w grafie pełnym $G_{n}$ z zastrzeżeniem, że sumaryczny koszt krawędzi w cyklu powinien być minimalny i zawierać wszystkie $n$ wierzchołków. żeka rzaba ktury   
+Problem komiwojażera (TSP) polega na wyznaczeniu cyklu w grafie pełnym $G_{n}$ z zastrzeżeniem, że sumaryczny koszt krawędzi w cyklu powinien być minimalny i zawierać wszystkie $n$ wierzchołków.  
 
-\section{Dowód przez redukcje}
+\begin{twr}
+TSP $\in$ NP-zupełnych.
+\end{twr}
+
+%\section{Dowód przez redukcje}
+
+\begin{proof}
+
+Tradycyjnie dowód zaczniemy od pokazania że TSP $in$ NP. Świadectwem dla problemu TSP jest ciąg wszystkich $n$ wierzchołków grafu $G_{n}$, natomiast weryfikacja świadectwa polega na sprawdzeniu czy każdy wierzchołek z grafu występuje dokładnie raz oraz czy między wierzchołkami występują krawędzie. Złożoność sprawdzenia tych warunków jest wielomianowa.
+
+Teraz druga część dowodu w której zostanie pokazane że TSP jest NP-trudny. W tym celu posłużymy się problemem HAM-CYCLE, czyli znalezienia cyklu w grafie po wszystkich wierzchołkach. Czyli zostanie przedstawiona redukcja HAM-CYCLE $<=$ TSP. Oznaczmy $G=(V,E)$ jako egzemplarz problemu  HAM-CYCLE, natomiast $G'=(V,E')$ będzie egzemplarzem problemu TSP. Graf $G'$ jest konstruowany jako graf pełny na tym samym zbiorze wierzchołków. Koszt krawędzi wynosi 0 dla tych krawędzi które należały do grafu $G$, natomiast dla pozostałych wynosi on 1. Złożoność skonstruowania takiego grafu jest wielomianowa.
+
+Załóżmy że graf $G$ zawiera cykl Hamiltona i pokażmy że wtedy w grafie $G'$ musi istnieć marszruta o całkowitym koszcie 0. Skoro graf $G$ zawiera cykl Hamiltona, to wszystkie te krawędzie w $G'$ mają koszt 0, zatem ten cykl jest marszrutą o całkowitym koszcie 0.
+Teraz z kolei załóżmy że $G'$ zawiera marszrutę o koszcie 0 i pokażmy że wtedy w grafie $G$ musi istnieć cykl Hamiltona. Zatem jeżeli w grafie występuje marszruta o całkowitym koszcie 0 to wszystie te krawędzie muszą istnieć w $G$, dalej te wszystkie krawędzie tworzą ścieżkę przechodzącą przez wszystkie wierzchołki a początkowy wierzchołek tej ścieżki jest jednocześniem wierzchołkiem końcowym, czyli tworzy ona cykl Hamiltona. Wnioskowanie to kończy dowód.
+
+\end{proof}
+
 
 \section{Algorytm aproksymacyjny}
