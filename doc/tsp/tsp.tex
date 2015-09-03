@@ -14,7 +14,7 @@ TSP $\in$ NP-zupełnych.
 
 \begin{proof}
 
-Tradycyjnie dowód zaczniemy od pokazania że TSP $in$ NP. Świadectwem dla problemu TSP jest ciąg wszystkich $n$ wierzchołków grafu $G_{n}$, natomiast weryfikacja świadectwa polega na sprawdzeniu czy każdy wierzchołek z grafu występuje dokładnie raz oraz czy między wierzchołkami występują krawędzie. Złożoność sprawdzenia tych warunków jest wielomianowa.
+Tradycyjnie dowód zaczyna się od pokazania, że TSP $in$ NP. Świadectwem dla problemu TSP jest ciąg wszystkich $n$ wierzchołków grafu $G_{n}$, natomiast weryfikacja świadectwa polega na sprawdzeniu czy każdy wierzchołek z grafu występuje dokładnie raz oraz czy między wierzchołkami występują krawędzie. Złożoność sprawdzenia tych warunków jest wielomianowa.
 
 Teraz druga część dowodu w której zostanie pokazane że TSP jest NP-trudny. W tym celu posłużymy się problemem HAM-CYCLE, czyli znalezienia cyklu w grafie po wszystkich wierzchołkach. Czyli zostanie przedstawiona redukcja HAM-CYCLE $<=$ TSP. Oznaczmy $G=(V,E)$ jako egzemplarz problemu  HAM-CYCLE, natomiast $G'=(V,E')$ będzie egzemplarzem problemu TSP. Graf $G'$ jest konstruowany jako graf pełny na tym samym zbiorze wierzchołków. Koszt krawędzi wynosi 0 dla tych krawędzi które należały do grafu $G$, natomiast dla pozostałych wynosi on 1. Złożoność skonstruowania takiego grafu jest wielomianowa.
 
