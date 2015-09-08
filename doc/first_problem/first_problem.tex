@@ -3,21 +3,21 @@
 
 \section{Wstęp}
 
-Przechodząc do rozważań nad konkretnymi problemami z klasy NP-zupełnej należy wpierw skupić się nad znaczeniem tej klasy. W teori NP-zupełności fundamentalne znaczenie ma metoda redukcji pomiędzy dwoma problemami. Podstawą wykorzystania tej metody jest założenie, że klasa ta jest niepusta dzięki czemu możemy pokazać redukcję problemu, który chcemy wprowadzić do tej klasy względem problemu znajdującego się już w klasie NP-zupełnej. Tu pojawia sie problem:“jak tego dokonać jeśli w początkowych rozważaniach klasa NPC jest pusta?”. Oczywiście nie można posłużyć się redukowalnością, aby wprowadzić pierwszy “pierwotny” problem. Niezbędne okaże się skorzystanie wprost z definicji, by w ten oto sposób zasilić klasę NP-zupełną o pierwszy problem. Później w oparciu o to będzie można już redukcją wprowadzać pozostałe problemy.
+Przechodząc do rozważań nad konkretnymi problemami z klasy NP-zupełnej należy wpierw skupić się nad znaczeniem tej klasy. W teori NP-zupełności fundamentalne znaczenie ma metoda redukcji pomiędzy dwoma problemami. Podstawą wykorzystania tej metody jest założenie, że klasa ta jest niepusta dzięki czemu możemy pokazać redukcję problemu, który chcemy wprowadzić do tej klasy względem problemu znajdującego się już w klasie NP-zupełnej. Tu pojawia sie problem:“jak tego dokonać jeśli w początkowych rozważaniach klasa NPC jest pusta?”. Nie można posłużyć się redukowalnością, aby wprowadzić pierwszy “pierwotny” problem. Niezbędne okaże się skorzystanie wprost z definicji, by w ten oto sposób zasilić klasę NP-zupełną o pierwszy problem. Później w oparciu o to będzie można już redukcją wprowadzać pozostałe problemy. 
 
 \section{Charakterystyka klasy NP-zupełnej}
 
-Definicja NP-zupełności mówi że, aby problem należał do klasy NPC musi spełniać dwa warunki, które można sprowadzić do następujących własności:
+Definicja NP-zupełności mówi, że, aby problem należał do klasy NPC musi spełniać dwa warunki, które można sprowadzić do następujących własności:
 \begin{enumerate}
 \item świadectwo problemu jest weryfikowalne w czasie wielomianowym
 \item jest co najmniej tak "trudny", jak każdy problem z NP.
 \end{enumerate}
 
-Własność 1. nie wydaje się względnie trudnym warunkiem, natomiast warunek 2., choć wygląda niepozornie może przysporzyć wielu kłopotów. Własność ta mówi o tym, że każdy problem z klasy NP można zredukować do naszego problemu. Tu zaczynają się komplikacje, ponieważ jesteśmy zmuszeni do określenia metody redukcji każdego problemu z klasy NP (nie ważne jaki on by nie był) do naszego problemu “pierwotnego”. Choć pozornie to zadanie wydaje się nie do zrealizowania o tyle istnieje na to bardzo ciekawe rozwiązanie. Błyskotliwe spostrzeżenie będące rozwiązaniem naszej zagadki jest ukryte w komputerach, a dokładnie na relacji pomiędzy modelem danych, a jego niższą warstwą fizycznych danych. Oczywiste jest to, że algorytmy implementujemy w pamięci komputera, zaś ten jest w stanie przeprowadzić jego działanie, tak aby otrzymać wynik. Natomiast cała idea tego przetwarzania jest realizowania na gigantycznych sieciach logicznych. Przyjrzyjmy się zatem problemowi spełnialności układów logicznych jako potencjalnemu kandydatowi na rolę “pierwotnego” problemu w klasie NPC.
+Własność 1. nie wydaje się względnie trudnym warunkiem, natomiast warunek 2. może już przysporzyć wielu trudności. Własność ta mówi o tym, że każdy problem z klasy NP można zredukować do powyższego problemu. Tu zaczynają się komplikacje, ponieważ należy określić metody redukcji każdego problemu z klasy NP (nie ważne jaki on by nie był) do naszego problemu “pierwotnego”. O ile pozornie to zadanie wydaje się nie do zrealizowania o tyle istnieje na to bardzo ciekawe rozwiązanie. Rozwiązanie jest ukryte w komputerach, a dokładnie na relacji pomiędzy modelem danych, a jego niższą warstwą fizycznych danych. Oczywiste jest to, że algorytmy implementujemy w pamięci komputera, zaś ten jest w stanie przeprowadzić jego działanie, tak, aby otrzymać wynik. Natomiast cała idea tego przetwarzania jest realizowana na gigantycznych sieciach logicznych. Przyjrzeć się należy zatem problemowi spełnialności układów logicznych jako potencjalnemu kandydatowi na rolę “pierwotnego” problemu w klasie NPC.
 
 \section{Problem spełnialności układów logicznych}
 
-Problem spełnialności układów logicznych (CIRCUIT-SAT) to układ $C$ zbudowany ze stałej liczby wejść binarnych oraz bramek logicznych. W podstawowym charakterze wyróżniamy bramki AND, OR I NOT. Układ nazywamy spełnialnym jeśli istnieje takie wartościowanie wejść sprawiające iż po wykonaniu wszystkich operacji logicznych z bramek na wyjściu otrzymamy prawdę.
+Problem spełnialności układów logicznych (CIRCUIT-SAT) to układ $C$ zbudowany ze stałej liczby wejść binarnych oraz bramek logicznych. W podstawowym charakterze wyróżniamy bramki AND, OR I NOT. Układ nazywamy spełnialnym, jeśli istnieje takie wartościowanie wejść sprawiające, iż po wykonaniu wszystkich operacji logicznych z bramek na wyjściu otrzyma się prawdę.
 
 Chcąc znaleźć rozwiązanie tego problemu istniej jedynie najbardziej prymitywny sposób jego realizacji. Polega on na sprawdzeniu wszystkich możliwych odpowiedzi, a dokładniej w obecnym tu przypadku na zbadaniu wszystkich możliwych wartościowań wejścia układu. Zakładając że układ składa się z $k$ wejść od razu widać że należy sprawdzić $2^{k}$ możliwych przypadków niezależnie od rozmiaru egzemplarza danych wejściowych. Sprawia to, że czas działania takiego algorytmu jest wykładniczy, czyli wyższy od wielomianowego.
 
@@ -73,6 +73,8 @@ Teraz zwróćmy uwagę na liczbę kroków którą potrzebuje zrealizować algory
 \item Podsumowanie
 
 Podsumowując pokazaliśmy, że algorytm redukcji $F$ w poprawny sposób symuluje działanie każdego algorytmu dającego przedstawić się w strukturze komputerowej. Ponadto jeśli złożoność czasowa symulowanego algorytmu nie jest większa od wielomianowej to złożoność czasowa algorytmu redukcyjnego $F$ też jest wielomianowa. Oznacza to, że problem CIRCUIT-SAT jest tak samo trudny jak każdy problem należący do klasy NP, czyli CIRCUIT-SAT $\in$ NP-trudny.
+
+
 \end{enumerate}
 \end{proof}
 
