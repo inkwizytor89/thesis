@@ -28,7 +28,7 @@ public class VertexCoverPresentation {
 		RandomGraphGenerator randomGraphGenerator = new RandomGraphGenerator(1024);
 		for (int i = 0; i < RANDOM_TEST_COUNT; i++) {
 			testGraphs.add(randomGraphGenerator.buildGraph().labeledAs("RandomGraph"));
-			randomGraphGenerator.randomize();
+//			randomGraphGenerator.randomize();
 		}
 
 		for (Graph graph : testGraphs) {

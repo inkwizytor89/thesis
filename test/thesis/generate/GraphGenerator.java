@@ -55,9 +55,7 @@ public abstract class GraphGenerator {
         return new Graph(vertices, edges);
     }
 
-    //public abstract Boolean nextEdgeSystem();
-
-    //public abstract Boolean addVertex();
+    protected abstract void beforeBuildGraph();
 
     @Override
     public String toString() {

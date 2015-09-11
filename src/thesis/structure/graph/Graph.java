@@ -1,7 +1,11 @@
 package thesis.structure.graph;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
 
 import thesis.structure.grapf.exception.SeparableGraphException;
 import thesis.structure.set.Node;
@@ -25,9 +29,9 @@ public class Graph {
 		createVertex(graph.getVerticesCount());
 		edges = new Edge[graph.getEdgesCount()];
 		for (int i = 0; i < graph.getEdgesCount(); i++) {
-			Integer startIndex = graph.getEdges()[i].vertexStart.index;
-			Integer endIndex = graph.getEdges()[i].vertexEnd.index;
-			edges[i] = new Edge(vertices[startIndex], vertices[endIndex]);
+//			Integer startIndex = graph.getEdges()[i].vertexStart.index;
+//			Integer endIndex = graph.getEdges()[i].vertexEnd.index;
+			edges[i] = new Edge(graph.getEdges()[i]);
 		}
 	}
 
@@ -117,13 +121,14 @@ public class Graph {
 	 *
 	 * @return
 	 */
-	public Graph getMinimumSpanningTree() {
+	@Deprecated
+	public Graph getMinimumSpanningTreeAsGraph() {
 		Node[] nodeVertices = new Node[vertices.length];
 		for (int i = 0; i < vertices.length; i++) {
 			nodeVertices[i] = new Node();
 		}
 		Arrays.sort(edges, new EdgeWeightComparator());
-		LinkedList<Edge> mst = new LinkedList<>();
+		List<Edge> mst = new ArrayList<>();
 		for (Edge edge : edges) {
 			Node start = nodeVertices[edge.getVertexStart().index].find();
 			Node end = nodeVertices[edge.getVertexEnd().index].find();
@@ -136,6 +141,34 @@ public class Graph {
 			throw new SeparableGraphException();
 		}
 		return new Graph(vertices, mst.toArray(new Edge[mst.size()]));
+	}
+
+	/**
+	 * Zwraca podgraf grafu głównego będący minimalnym drzewem wg algorytmu
+	 * Kraskala.
+	 *
+	 * @return
+	 */
+	public Graph getMinimumSpanningTree() {
+		Arrays.sort(edges, new EdgeWeightComparator());
+		List<Edge> mst = new ArrayList<>();
+		Set<Vertex> vertices = new HashSet<Vertex>();
+		for (Edge edge : edges) {
+			Vertex start = edge.getVertexStart();
+			Vertex end = edge.getVertexEnd();
+			
+			if (vertices.contains(start) && vertices.contains(end)) {
+				continue;
+			}
+			
+			vertices.add(start);
+			vertices.add(end);
+			mst.add(edge);
+			if (mst.size() == vertices.size()) {
+				break;
+			}
+		}
+		return new Graph(this.vertices, mst.toArray(new Edge[mst.size()]));
 	}
 
 	/**
@@ -287,6 +320,12 @@ public class Graph {
 		String result = "Graph: " + vertices.length + " " + edges.length + "\n";
 		for (Edge edge : edges) {
 			result += edge.toString();
+		}
+		for (int i = 0; i < vertices.length; i++) {
+			result += vertices[i].toString() +":\n";
+			for (Edge edge : vertices[i].getBindedEdges()) {	
+				result += "\t" + edge.toString();
+			}
 		}
 		return result;
 	}

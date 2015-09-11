@@ -88,7 +88,7 @@ public class VertexCoverTest {
 	}
 	
 	private Graph createRandomGraph() {
-		randomGraphGenerator.randomize();
+//		randomGraphGenerator.randomize();
 		return randomGraphGenerator.buildGraph();
 	}
 }

@@ -16,46 +16,47 @@ import thesis.structure.graph.Graph;
 
 public class CliqueTest {
 
+	private static final String RANDOM_GRAPH_NAME = "RandomGraph";
 	RandomGraphGenerator randomGraphGenerator = new RandomGraphGenerator(28);
 
 	@Test
 	public void VertexCoverRandomGraph1() throws Exception {
-		isCorrect(createRandomGraph().labeledAs("RandomGraph"));
+		isCorrect(createRandomGraph().labeledAs(RANDOM_GRAPH_NAME));
 	}
 	
 	@Test
 	public void VertexCoverRandomGraph2() throws Exception {
-		isCorrect(createRandomGraph().labeledAs("RandomGraph"));
+		isCorrect(createRandomGraph().labeledAs(	RANDOM_GRAPH_NAME));
 	}
 	
 	@Test
 	public void VertexCoverRandomGraph3() throws Exception {
-		isCorrect(createRandomGraph().labeledAs("RandomGraph"));
+		isCorrect(createRandomGraph().labeledAs(RANDOM_GRAPH_NAME));
 	}
 	
 	@Test
 	public void VertexCoverRandomGraph4() throws Exception {
-		isCorrect(createRandomGraph().labeledAs("RandomGraph"));
+		isCorrect(createRandomGraph().labeledAs(RANDOM_GRAPH_NAME));
 	}
 	
 	@Test
 	public void VertexCoverRandomGraph5() throws Exception {
-		isCorrect(createRandomGraph().labeledAs("RandomGraph"));
+		isCorrect(createRandomGraph().labeledAs(RANDOM_GRAPH_NAME));
 	}
 	
 	@Test
 	public void VertexCoverRandomGraph6() throws Exception {
-		isCorrect(createRandomGraph().labeledAs("RandomGraph"));
+		isCorrect(createRandomGraph().labeledAs(RANDOM_GRAPH_NAME));
 	}
 	
 	@Test
 	public void VertexCoverRandomGraph7() throws Exception {
-		isCorrect(createRandomGraph().labeledAs("RandomGraph"));
+		isCorrect(createRandomGraph().labeledAs(RANDOM_GRAPH_NAME));
 	}
 	
 	@Test
 	public void VertexCoverRandomGraph8() throws Exception {
-		isCorrect(createRandomGraph().labeledAs("RandomGraph"));
+		isCorrect(createRandomGraph().labeledAs(RANDOM_GRAPH_NAME));
 	}
 	
 	private void isCorrect(Graph graph) {
@@ -70,7 +71,7 @@ public class CliqueTest {
 	}	
 	
 	private Graph createRandomGraph() {
-		randomGraphGenerator.randomize();
+//		randomGraphGenerator.randomize();public Graph buildGraph() {
 		return randomGraphGenerator.buildGraph();
 	}
 }

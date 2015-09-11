@@ -31,7 +31,7 @@ public class Manager {
      */
     Manager() {
     	
-//    	VertexCoverPresentation.presents();
+    	VertexCoverPresentation.presents();
     	CliquePresentation.presents();
     	TSPPresentation.presents();
     	SubsetSumPresentation.presents();

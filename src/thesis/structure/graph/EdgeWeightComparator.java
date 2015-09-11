@@ -10,6 +10,6 @@ public class EdgeWeightComparator implements Comparator<Edge> {
 
     @Override
     public int compare(Edge firstEdge, Edge secondEdge) {
-        return firstEdge.weight - secondEdge.weight > 0 ? 1: -1;
+        return firstEdge.weight.compareTo(secondEdge.weight);
     }
 }
