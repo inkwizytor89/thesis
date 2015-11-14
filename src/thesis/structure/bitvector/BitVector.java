@@ -77,6 +77,10 @@ public class BitVector {
     public Boolean getPositionValue(Integer position) {
         return vector[position];
     }
+    
+    public void setPositionValue(Integer index, boolean value) {
+    	vector[index] = value;
+    }
 
     /**
      * Sprawdza czy wektor skłąda się z samych 1

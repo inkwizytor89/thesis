@@ -8,7 +8,7 @@ import thesis.structure.graph.Edge;
 import thesis.structure.graph.Graph;
 import thesis.structure.graph.Vertex;
 
-public class ApproxTspTour {
+public class ApproxTSPTour {
 
 	public static List<Vertex> cache;
 

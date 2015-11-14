@@ -60,14 +60,11 @@ public class TSPTest {
 		System.out.println(graph.getLabel());
 		Integer mentorRoadWeight = NaiveTSP.returnRoadWeight(graph.copedGraphEdges());
 		System.out.println("\tTSP-MENTOR find road size " + mentorRoadWeight);
-		Integer appRoadTSP = ApproxTspTour.returnRoadWeight(graph.copedGraphEdges());
+		Integer appRoadTSP = ApproxTSPTour.returnRoadWeight(graph.copedGraphEdges());
 		System.out.println("\tTSP-APPROX Alghoritm find road size " + appRoadTSP);
-		Integer xRoadTSP = XTSP.returnRoadWeight(graph.copedGraphEdges());
-		System.out.println("\tX-TSP-APPROX Alghoritm find road size " + xRoadTSP);
 		System.out.println(Runtime.getRuntime().availableProcessors());
 		
 		assertTrue(mentorRoadWeight <= appRoadTSP);
-		assertTrue(mentorRoadWeight <= xRoadTSP);
 	}	
 	
 	private Graph createRandomCompleteGraph() {
