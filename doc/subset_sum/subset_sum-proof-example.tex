@@ -1,0 +1,88 @@
+\begin{figure}[tbh]
+\centering
+
+\begin{tikzpicture} [node distance=1.5cm]
+
+\tikzstyle{unmark_vertex}=[circle,thick,draw=blue!75,fill=blue!20,minimum size=5mm]
+\tikzstyle{mark_vertex}=[rectangle,thick,draw=red!75,fill=red!20,minimum size=4mm]
+
+  \begin{scope}[xshift=-1.5cm, yshift=4cm]
+  
+  	\node [mark_vertex] (v1) {$v_{1}$};
+  	\node [unmark_vertex] (v2) [above of=v1] {$v_{2}$}
+  		edge node[left] {$e_{1}$} (v1);
+  	\node [unmark_vertex] (v3) [right of=v1] {$v_{3}$}
+  		edge node[above] {$e_{2}$} (v1);
+  	\node [mark_vertex] (v4) [right of=v2] {$v_{4}$}
+		edge node[above] {$e_{3}$} (v2)  		
+  		edge node[left] {$e_{4}$} (v3);
+  	\node [unmark_vertex] (v5) [right of=v3] {$v_{5}$}
+  		edge node[right] {$e_{5}$} (v4);
+
+	\node at (1.4cm, -1.0cm) {\text{(1)}};
+  \end{scope}
+  
+  \begin{scope}[yshift=-0.5cm]
+  
+    \tikzset{BarreStyle/.style =   {opacity=.4,line width=6 mm,line cap=round,color=#1}}
+  	\tikzset{node style ge/.style={circle}}
+
+    \matrix (A) [matrix of math nodes, nodes = {node style ge},,column sep=0 mm] 
+	{ 
+  		      & e_{5} & e_{4} & e_{3} & e_{2} & e_{1} \\
+  		v_{1} & 0     & 0     & 0     & 1     & 1     \\
+  		v_{2} & 0     & 0     & 1     & 0     & 1     \\
+  		v_{3} & 0     & 1     & 0     & 1     & 0     \\
+  		v_{4} & 1     & 1     & 1     & 0     & 0     \\
+  		v_{5} & 1     & 0     & 0     & 0     & 0     \\
+	};
+
+	\draw [BarreStyle=red] (A-2-1.west) to (A-2-6.east);
+	\draw [BarreStyle=red] (A-5-1.west) to (A-5-6.east);
+
+	\node at (0cm, -2.7cm) {\text{(2)}};
+  \end{scope}
+  
+  \begin{scope}[xshift=8cm]
+  	\tikzset{BarreStyle/.style =   {opacity=.4,line width=6 mm,line cap=round,color=#1}}
+  	\tikzset{LineStyle/.style =   {opacity=.7,line width=0.5 mm,line cap=round,color=#1}}
+  	\tikzset{node style ge/.style={circle}}
+
+    \matrix (A) [matrix of math nodes, nodes = {node style ge},,column sep=0 mm] 
+	{ 
+  		x_{1}  & =  & 1  & 0  & 0  & 0  & 1  & 1  & =  & 1029 \\
+  		x_{2}  & =  & 1  & 0  & 0  & 1  & 0  & 1  & =  & 1041 \\
+  		x_{3}  & =  & 1  & 0  & 1  & 0  & 1  & 0  & =  & 1092 \\
+  		x_{4}  & =  & 1  & 1  & 1  & 1  & 0  & 0  & =  & 1360 \\
+  		x_{5}  & =  & 1  & 1  & 0  & 0  & 0  & 0  & =  & 1280 \\
+  		y_{1}  & =  & 0  & 0  & 0  & 0  & 0  & 1  & =  & 1    \\
+  		y_{2}  & =  & 0  & 0  & 0  & 0  & 1  & 0  & =  & 4    \\
+  		y_{3}  & =  & 0  & 0  & 0  & 1  & 0  & 0  & =  & 16   \\
+  		y_{4}  & =  & 0  & 0  & 1  & 0  & 0  & 0  & =  & 64   \\
+  		y_{5}  & =  & 0  & 1  & 0  & 0  & 0  & 0  & =  & 256  \\
+  		   -   & -  &  - & -  & -  & -  & -  & -  & -  &  -   \\
+  		t  & =  & 2  & 2  & 2  & 2  & 2  & 2  & =  & 2730     \\
+	};
+	
+	\draw [BarreStyle=red] (A-1-1.west) to (A-1-10.east);
+	\draw [BarreStyle=red] (A-4-1.west) to (A-4-10.east);
+	\draw [BarreStyle=red] (A-6-1.west) to (A-6-10.east);
+	\draw [BarreStyle=red] (A-7-1.west) to (A-7-10.east);
+	\draw [BarreStyle=red] (A-8-1.west) to (A-8-10.east);
+	\draw [BarreStyle=red] (A-9-1.west) to (A-9-10.east);
+	\draw [BarreStyle=red] (A-10-1.west) to (A-10-10.east);
+	\draw [LineStyle=black] (A-11-1.west) to (A-11-10.east);
+	
+	\node at (0cm, -7cm) {\text{(3)}};
+	
+  \end{scope}
+
+\end{tikzpicture}
+\caption{Redukcja problemu VERTEX-COVER do problemu SUBSET-SUM.
+	\newline (1) Przykład grafu nieskierowanego. Wierzchołki minimalnego pokrycia wierzchołkowego prezentowane są na czerwono
+	\newline (2) Macierz incydencji dla przykładowego grafu. Kolorem czerwonym zostały oznaczone wierzchołki z minimalnego pokrycia wierzchołkowego.
+	\newline (3) Rozwiązanie problemu SUBSET-SUM odpowiadające przykładowemu grafu dla problemu VERTEX-COVER. Elementy typu $x$ odpowiadają wierzchołką, a kolorem oznaczone są te których wierzchołki wchodzą do pokrycia wierzchołkowego. Elementy typu $y$ którym odpowiadają krawędzie, kolorem czerwonym oznaczone te które mają koniec w dokładnie jednym wierzchołku pokrycia wierzchołkowego. Najbardziej znaczący bit tworzący sumę $t$ jest równy rozmiarowi pokrycia wierzchołkowego, zaś reszta bitów ma wartość 2. Wszystkie elementy tworzą zbiór $S$, natomiaste te oznaczone kolorem czerwoną tworzą szukaną sumę.
+	 Elementy oznaczone
+	}
+\label{subset_sum-proof-example}
+\end{figure}

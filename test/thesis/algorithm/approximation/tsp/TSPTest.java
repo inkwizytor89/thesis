@@ -62,7 +62,6 @@ public class TSPTest {
 		System.out.println("\tTSP-MENTOR find road size " + mentorRoadWeight);
 		Integer appRoadTSP = ApproxTSPTour.returnRoadWeight(graph.copedGraphEdges());
 		System.out.println("\tTSP-APPROX Alghoritm find road size " + appRoadTSP);
-		System.out.println(Runtime.getRuntime().availableProcessors());
 		
 		assertTrue(mentorRoadWeight <= appRoadTSP);
 	}	
