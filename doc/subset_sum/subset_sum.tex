@@ -41,28 +41,14 @@ Przy tak określonej redukcji zostanie pokazane, że graf G będzie miał pokryc
 
 W pierwszej kolejności załóżmy, że graf G ma pokrycie wierzchołkowe $ { v_1,v_2, v_3 ... wiekszy odstęp  v_k} \subset $ V. Na podstawie grafu G otrzymujemy macierz w oparciu o przedstawioną wyżej konstrukcje. Z grupy X wybrane są elementy $x_i$ odpowiadającę pokryciu wierzchołkowemu, natomiast z grupy Y te $y_i$ których odpowiadające krawędzie mają koniec w dokłdnie jednym wierchołku pokrycia wierzchołkowemu. Udowodnijmy dalej że po wybraniu dokładnie tych elementów suma ich będzię równa zdefiniowanej przez nas wartośći $t$. W grupie X wartość najbardziej znaczącego bitu wynosi dokładnie k elementów, ponieważ one zostały wybrane z pokrycia wierzchołkowego. Natomiast w grupie Y na najbardziej znaczącym bicie występują zawsze wartości 0. Pozostałe bity zdeterminowane są przez krawędzie w grafie, a wartość $t$ w każdej kolumnie wynosi $2$. Każda kolumna w macierzy odpowiada krawędzi grafu, zatem w każdej kolumnie w grupie X będą dokładnie dwie wartości 1. Jednak uwzględniajac tylko wierzchołki z pokrycia, to w każdej kolumnie może występować conajmniej raz warość 1. Spoglądając szerzej jeśli krawędz jest pokryta wyłącznie przez jeden wierzchołek to w kolumnie znajduje się wyłącznie jedna wartość 1. W takim przypadku do zbioru $S'$ dodajemy jednak element z grupy Y, który w tej pozycji ma wartość 1. W innym przypadku jak krawędź jest pokryta przez dwa wierzchołki to w grupie X w odpowiedniej kolumnie występują dokładnie dwie wartości 1. Dla takiego przypadku nie zostaje dodany odpowiadający mu element z grupy Y. Podsumowując w kolumnie najbardziej suma bitów zawsze wynosi k, a w pozostałych kolumnach suma zawsze wynosi 2. Oznacza to że elementy ze zbioru $S'$ zawsze będą się w ten sposób sumowały do warości $t$.
 
-Teraz udowodnijmy przeciwne wnioskowanie i załóży że istnieje taki podzbiór $S' zawierasie S$, którego elementy sumują się do wartosci $t$.  Wartość $t$ zdefiniowana jest w ten sposób że składa się z wartości 2 na każdym bicie w kodzie czwórkowym poza najbardziej znaczącym bitem. Najbardziej znaczący bit oznaczmy jako $m$. Dzięki temu można odczytać ile krawędzi znajduje się w grafie G. Dalej podzielmy podzbiór $S'$ na dwie grupy. Grupa Y zawiera podzbiory $ S' $, których suma wynosi wartość potęgi liczby 4. Pozostałe elementy stanowią podzbiory których suma należy do grupy X, podzbiory charakteryzuje to że ich najbardziej znaczący bit jest związany z taką potęgą liczby 4 co wartość $m$. Dzięki temu możemy podzielić zbiór $ S' $ w taki sposób $ { x_i1, x_i2, ... x_im } suma { y_j1, y_j2, ... y_jp } $ . Dodatkowo zbiór $ S $ zawiera dodatkowe elementy które wypełną wiersze macierzy z konstrukcji. W rezultacie w każdej kolumnie poza najbardziej znaczącym bitem muszą znajdować się trzy wartości 1, dwie w grupie X i jedna w grupie Y, tak by krawędź w grafie miała dokładnie 2 końce. Dzięki temu że elementy z $S'$ sumują się do $t$ oznacza to że każdemu elementow z $ {x_i1, x_i2, ... x_im}$ odpowiada wierchołkowi z pokrycie wierzchołkoweg ponieważ w kolumnie mniejznaczących bitów każda wartość wynosi 2. W rezultacie $m = k$ i kończy to dowód. 
+Teraz udowodnijmy przeciwne wnioskowanie i załóży że istnieje taki podzbiór $S' zawierasie S$, którego elementy sumują się do wartosci $t$.  Wartość $t$ zdefiniowana jest w ten sposób że składa się z wartości 2 na każdym bicie w kodzie czwórkowym poza najbardziej znaczącym bitem. Najbardziej znaczący bit oznaczmy jako $m$. Dzięki temu można odczytać ile krawędzi znajduje się w grafie G. Dalej podzielmy podzbiór $S'$ na dwie grupy. Grupa Y zawiera podzbiory $ S' $, których suma wynosi wartość potęgi liczby 4. Pozostałe elementy stanowią podzbiory których suma należy do grupy X, podzbiory charakteryzuje to że ich najbardziej znaczący bit jest związany z taką potęgą liczby 4 co wartość $m$. Dzięki temu możemy podzielić zbiór $ S' $ w taki sposób $ { x_i1, x_i2, ... x_im } suma { y_j1, y_j2, ... y_jp } $ . Dodatkowo zbiór $ S $ zawiera dodatkowe elementy któr
+e wypełną wiersze macierzy z konstrukcji. W rezultacie w każdej kolumnie poza najbardziej znaczącym bitem muszą znajdować się trzy wartości 1, dwie w grupie X i jedna w grupie Y, tak by krawędź w grafie miała dokładnie 2 końce. Dzięki temu że elementy z $S'$ sumują się do $t$ oznacza to że każdemu elementow z $ {x_i1, x_i2, ... x_im}$ odpowiada wierchołkowi z pokrycie wierzchołkoweg ponieważ w kolumnie mniejznaczących bitów każda wartość wynosi 2. W rezultacie $m = k$ i kończy to dowód. 
 
-
-Pokażemy że $m = k$ oraz że elementą $x_i$ będą odpowiadały wierzchołki $v_i$ tworzące pokrycie wierzchołkowe w grafie G.
-
-
-W takim przypadku aby można było otrzymać poprawny graf w grupie X musi znajdować się conajmniej $m$ elementów, tak by suma najbardziej znaczących bitów odpowiadała wartości $t$. W przypadku mniej znaczących bitów w każdej kolumnie muszą znajdować się trzy warości 1. 
-
-
-W tak zdefiniowanym zbiorze odpowiadającym zasadą konstrukcji wszystkie elementy możemy przedstawić w systemie czwórkowym
-
-
-Ciąg dalszy nastąpi... że redukcja jest wielomianowa.
-
-
-Zbiór $S'$ tworzą liczby z pokrycia wierzchołkowego, zatem każda krawędz jest pokryta przez 2 lub 1 wierzchołek. 
-
-Wybrane wiersze sumowały się do wartości $2$ w kolumnie 
-
-
-
- Liczbę $t$ tworzą dwie grupy X i Y.
 \end{proof}
 
+
 \section{Algorytm aproksymacyjny}
+
+Jednym z dobrych podejść do rozwiązania tego problemu w  jest algorytm zaprezentowany w książce "Wprowadzenie do algorytmów" \cite{Cormen2012} i w \cite{Cormen1994} korzystam też z \cite{Vazirani} i \cite{Papadimitriou} fajne jest też w \cite{LapChiLau}. a co to to nie wiem \cite{Lap_csc5160:combinatorial}
+
+\input{subset_sum/subset_sum-approx_algorithm.tex}

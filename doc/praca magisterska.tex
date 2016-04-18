@@ -8,9 +8,11 @@
 \pagenumbering{roman}
 
 % strona tytulowa
+\newpage
 \input{strona_tytulowa.tex}
 
 % oswiadczenie
+\newpage
 \input{oswiadczenie.tex}
 
 % wstawienie spisu tresci:
@@ -31,22 +33,23 @@
 \input{tsp/tsp.tex}
 \input{subset_sum/subset_sum.tex}
 %\input{rozdzial_4.tex}
+\newpage
+
 
 % spis ilustracji:
-\newpage
+
 \listoffigures
 \addcontentsline{toc}{chapter}{Spis ilustracji}
+\newpage
 
 % spis tabel:
-\newpage
 \listoftables
 \addcontentsline{toc}{chapter}{Spis tabel}
-
 
 %bibliografia
 %\nocite{*}
 \bibliographystyle{acm}
-\bibliography{bibliografia.bib}
+\bibliography{bibliografia}
 \addcontentsline{toc}{chapter}{Bibliografia}
 
 \end{document} 

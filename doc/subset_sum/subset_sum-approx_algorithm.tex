@@ -1,0 +1,38 @@
+\begin{algorithm}
+\caption{}\label{euclid}
+\begin{algorithmic}[1]
+
+\Function{SUBSET-SUM-APPROX($S$,$t$)}{}
+	\State $R \gets \{0\}$
+	\For{\textbf{each} $s$ in $S$}
+	\State $R \gets expand(R,s)$
+	\State $R \gets trim(R)$
+	\EndFor
+	\State \Return $R$
+\EndFunction
+\newline
+
+\Function{expand($R$,$s$)}{}
+	\State $L \gets R$
+	\For{\textbf{each} $l$ in $L$}
+	\State $R \gets R \cup \{l+s\}$
+	\EndFor
+	\State \Return $R$
+\EndFunction
+\newline
+
+\Function{trim($L$)}{}
+	\State $last \gets 0$
+	\State $R \gets \emptyset$
+	\For{\textbf{each} $l$ in $L$}
+		\If {$l > last * (1+q)$}
+				\State $R \gets R \cup \{l\}$
+				\State $last \gets l$
+		\EndIf
+	\EndFor
+	\State \Return $R$
+\EndFunction
+\newline
+
+\end{algorithmic}
+\end{algorithm}
